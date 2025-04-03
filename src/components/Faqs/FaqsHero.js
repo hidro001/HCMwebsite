@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import HeroRight from "../../assets/images/HeroImage.webp";
+import HeroRight from "../../assets/images/HeroLeft.webp";
 import YellowCircular from "../../assets/images/CircularShape.webp";
 import heroImage from "../../assets/images/HeroLeft.webp";
 import crownIcon from "../../assets/images/Crown.svg";

@@ -3,7 +3,7 @@ import {Logo} from "../assets/images/logo.png";
 
 const GreytHRFooter = () => {
   return (
-    <footer className="bg-[#12121a] text-white py-12 border-t border-gray-200 select-none">
+    <footer className="bg-[#0F2C46] text-white py-12 border-t border-gray-200 select-none">
       <div className="container mx-auto px-2">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Product Column */}

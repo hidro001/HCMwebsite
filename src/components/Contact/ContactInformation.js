@@ -26,14 +26,14 @@ const HelpHRJourneySection = () => {
           <div className="mb-4">
             <p className="font-medium text-gray-700">Toll Free:</p>
             <a href="tel:1-866-387-9595" className="text-green-600 hover:underline">
-              1-866-387-9595
+              1-588-837-9579
             </a>
           </div>
 
           <div className="mb-6">
             <p className="font-medium text-gray-700">Email:</p>
             <a href="mailto:support@bamboohr.com" className="text-green-600 hover:underline">
-              support@bamboohr.com
+              support@HumanMaximizer.com
             </a>
           </div>
 

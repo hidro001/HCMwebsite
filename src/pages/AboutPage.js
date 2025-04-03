@@ -9,6 +9,7 @@ import PeopleFreeSection from "../components/About/AboutParagraph";
 import Footer from "../components/Footer";
 import HRMSSoftware from "../components/About/AboutHero";
 import HRProblemsCards from "../components/About/AboutWeBelive";
+import BusinessContactSection from "../components/FreeConsultant";
 
 
 function About() {
@@ -19,8 +20,9 @@ function About() {
       <HRProblemsCards />
       <AboutOurPorposeSection />
       <AboutHowWeDoItSection />
-      <PeopleFreeSection />
       <AboutOurValuesSection />
+      <PeopleFreeSection />
+      <BusinessContactSection />
 
       <Footer />
 

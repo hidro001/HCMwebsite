@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 // SVG Icon Component
 const DocumentIcon = () => (
@@ -12,17 +12,20 @@ const DocumentIcon = () => (
   </svg>
 );
 
-// Card Component
+// Card Component with Fade animations
 const HRMSCard = ({
   bgColor,
   iconBgColor,
   title,
   description,
-  icon = <DocumentIcon />
+  icon = <DocumentIcon />,
+  isVisible
 }) => {
   return (
     <div
-      className={`${bgColor} rounded-lg p-5 shadow-md transition-all duration-300 hover:shadow-lg hover:scale-105 hover:${bgColor.replace('50', '100')} cursor-pointer`}
+      className={`${bgColor} rounded-lg p-5 shadow-md transition-all duration-500 hover:shadow-lg hover:scale-105 hover:${bgColor.replace('50', '100')} cursor-pointer ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+      }`}
     >
       <div className="flex items-start">
         <div
@@ -43,6 +46,30 @@ const HRMSCard = ({
 
 // HRMS Cards Section Component
 const HRMSCardsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const [isLeaving, setIsLeaving] = useState(false);
+  
+  // Fade in on component mount
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 300);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  // Function to handle fade out
+  const handleFadeOut = () => {
+    setIsLeaving(true);
+    setTimeout(() => {
+      // This would typically be where you navigate away or unmount the component
+      console.log("Component has faded out");
+      // For demonstration purposes only - in a real app, you'd use router navigation here
+      setIsLeaving(false);
+      setIsVisible(false);
+    }, 500);
+  };
+
   const scrollbarHideStyles = `
     ::-webkit-scrollbar {
       display: none;
@@ -50,6 +77,24 @@ const HRMSCardsSection = () => {
     body {
       -ms-overflow-style: none;
       scrollbar-width: none;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeOut {
+      from { opacity: 1; transform: translateY(0); }
+      to { opacity: 0; transform: translateY(-20px); }
+    }
+    
+    .fade-in {
+      animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    
+    .fade-out {
+      animation: fadeOut 0.5s ease-in-out forwards;
     }
   `;
 
@@ -93,17 +138,17 @@ const HRMSCardsSection = () => {
   ];
 
   return (
-    <div className="w-full pb-20 px-40">
+    <div className={`w-full pb-20 px-40 transition-opacity duration-500 ${isLeaving ? 'fade-out' : 'fade-in'}`}>
       {/* Heading Section */}
       <div className="pb-12 select-none">
-        {/* Add style tag to inject scrollbar hiding CSS */}
+        {/* Add style tag to inject scrollbar hiding CSS and animations */}
         <style>{scrollbarHideStyles}</style>
 
         <div className="text-center">
-          <h1 className="text-4xl font-bold mb-2">
-            Everyone gets <span className="text-purple-600">value</span> from day 1
+          <h1 className={`text-4xl font-bold mb-2 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            Everyone gets <span className="text-[#8FA83F]">value</span> from day 1
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className={`text-lg text-gray-600 transition-all duration-500 delay-100 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             A platform loved by everyone in your company - by employers and employees
           </p>
         </div>
@@ -118,9 +163,13 @@ const HRMSCardsSection = () => {
             iconBgColor={card.iconBgColor}
             title={card.title}
             description={card.description}
+            isVisible={isVisible}
+            style={{ transitionDelay: `${100 + index * 100}ms` }}
           />
         ))}
       </div>
+      
+      
     </div>
   );
 };

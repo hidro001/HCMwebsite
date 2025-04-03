@@ -1,6 +1,62 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const HRManagementTools = () => {
+  // Animation states
+  const [isVisible, setIsVisible] = useState(false);
+  const [activeCardIndex, setActiveCardIndex] = useState(-1);
+  const [textColorIndex, setTextColorIndex] = useState(0);
+  const sectionRef = useRef(null);
+
+  // Colors for text animation
+  const colorClasses = ["text-blue-600", "text-purple-600", "text-green-600", "text-pink-600"];
+
+  // Handle text color animation
+  useEffect(() => {
+    const colorInterval = setInterval(() => {
+      setTextColorIndex((prevIndex) => (prevIndex + 1) % colorClasses.length);
+    }, 2000);
+
+    return () => clearInterval(colorInterval);
+  }, []);
+
+  // Handle section visibility
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  // Handle card hover animations
+  useEffect(() => {
+    if (isVisible) {
+      const cardInterval = setInterval(() => {
+        setActiveCardIndex((prevIndex) => {
+          if (prevIndex >= toolsData.length - 1) {
+            return -1;
+          }
+          return prevIndex + 1;
+        });
+      }, 3000);
+
+      return () => clearInterval(cardInterval);
+    }
+  }, [isVisible]);
+
   const toolsData = [
     {
       title: "Employee Data Management",
@@ -342,32 +398,40 @@ const HRManagementTools = () => {
     },
   ];
 
-  const ToolCard = ({ title, color, icon, link }) => {
+  const ToolCard = ({ title, color, icon, link, index }) => {
     const renderTitle = () => {
       const titleParts = title.split(" ");
       return titleParts.length > 1 ? (
         <>
-          <h3 className="text-xl font-bold mb-1">{titleParts[0]}</h3>
-          <h3 className="text-xl font-bold">{titleParts.slice(1).join(" ")}</h3>
+          <h3 className={`text-xl font-bold mb-1 ${activeCardIndex === index ? 'animate-text-pulse' : ''}`}>
+            {titleParts[0]}
+          </h3>
+          <h3 className={`text-xl font-bold ${activeCardIndex === index ? 'animate-text-pulse' : ''}`}>
+            {titleParts.slice(1).join(" ")}
+          </h3>
         </>
       ) : (
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className={`text-xl font-bold ${activeCardIndex === index ? 'animate-text-pulse' : ''}`}>
+          {title}
+        </h3>
       );
     };
 
-    // Ensure text color matches the theme color
-    const textColorClass = `text-${color}-500`;
-
     return (
       <div
-        className={`bg-${color}-50 rounded-lg p-8 flex flex-col items-center text-center`}
+        className={`bg-${color}-50 rounded-lg p-8 flex flex-col items-center text-center transition-all duration-300 ${
+          activeCardIndex === index ? `transform scale-105 shadow-lg` : ''
+        }`}
       >
         <div className="mb-4 relative">
-          {/* This div creates the rounded background */}
           <div
-            className={`bg-${color}-50 w-16 h-16 rounded-full absolute -top-4 -right-4 z-0`}
+            className={`bg-${color}-50 w-16 h-16 rounded-full absolute -top-4 -right-4 z-0 ${
+              activeCardIndex === index ? 'animate-ping-slow' : ''
+            }`}
           ></div>
-          <div className="relative z-10 flex items-center justify-center">
+          <div className={`relative z-10 flex items-center justify-center ${
+            activeCardIndex === index ? 'animate-bounce-gentle' : ''
+          }`}>
             {icon}
           </div>
         </div>
@@ -376,31 +440,103 @@ const HRManagementTools = () => {
     );
   };
 
+  // Split the title for animation
+  const titleWords = [
+    "Effective",
+    "Human Maximizer",
+    "Tools To",
+    "Improve Workforce Management"
+  ];
+
   return (
-    <div className="w-full pb-20 px-40">
+    <div className="w-full pb-20 px-4 md:px-20 lg:px-40" ref={sectionRef}>
       <div className="mx-auto pb-12 select-none">
-        <h1 className="text-center text-4xl font-bold">
-          <span className="text-black mr-2">Effective</span>
-          <span className="text-blue-600 mr-4">Human Maximizer</span>
-          <span className="text-black">Tools To</span>
+        <h1 className="text-center text-4xl font-bold overflow-hidden">
+          <div className={`transition-all duration-1000 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <span className="text-black mr-2 inline-block">{titleWords[0]}</span>
+            <span className={`${colorClasses[textColorIndex]} mr-4 inline-block transition-colors duration-700`}>{titleWords[1]}</span>
+            <span className="text-black inline-block">{titleWords[2]}</span>
+          </div>
           <br className="sm:hidden" />
-          <span className="text-black mt-2 block">
-            Improve Workforce Management
-          </span>
+          <div className={`mt-2 block transition-all duration-1000 delay-300 transform ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <span className="text-black relative inline-block animated-underline">{titleWords[3]}</span>
+          </div>
         </h1>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {toolsData.map((tool, index) => (
-          <ToolCard
+          <div
             key={index}
-            title={tool.title}
-            color={tool.color}
-            icon={tool.icon}
-            link={tool.link}
-          />
+            className={`transition-all duration-700 transform ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+            }`}
+            style={{ transitionDelay: `${100 + index * 100}ms` }}
+          >
+            <ToolCard
+              title={tool.title}
+              color={tool.color}
+              icon={tool.icon}
+              link={tool.link}
+              index={index}
+            />
+          </div>
         ))}
       </div>
+
+      {/* Add animation keyframes via style tag */}
+      <style jsx>{`
+        @keyframes textPulse {
+          0%, 100% { color: currentColor; }
+          50% { color: #3B82F6; }
+        }
+        
+        @keyframes textGradient {
+          0% { background-position: 0% 50%; }
+          50% { background-position: 100% 50%; }
+          100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes underlineAnimation {
+          0% { width: 0; }
+          100% { width: 100%; }
+        }
+        
+        @keyframes bounceGentle {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes pingSlow {
+          0% { transform: scale(1); opacity: 1; }
+          50% { transform: scale(1.2); opacity: 0.8; }
+          100% { transform: scale(1); opacity: 1; }
+        }
+        
+        .animate-text-pulse {
+          animation: textPulse 2s infinite;
+        }
+        
+        .animate-bounce-gentle {
+          animation: bounceGentle 2s infinite;
+        }
+        
+        .animate-ping-slow {
+          animation: pingSlow 3s infinite;
+        }
+        
+        .animated-underline::after {
+          content: '';
+          position: absolute;
+          bottom: -3px;
+          left: 0;
+          width: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #3B82F6, #8B5CF6, #EC4899);
+          animation: underlineAnimation 2s forwards;
+          animation-delay: 0.5s;
+        }
+      `}</style>
     </div>
   );
 };

@@ -19,7 +19,7 @@ const scrollbarHideStyles = `
   }
 `;
 
-const GreytHRValueSection = () => {
+const MaximizerHRValueSection = () => {
   const [selectedRole, setSelectedRole] = useState('CIO');
   const [isMobile, setIsMobile] = useState(false);
   const carouselRef = useRef(null);
@@ -157,7 +157,7 @@ const GreytHRValueSection = () => {
 
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold mb-2">
-          Everyone gets <span className="text-purple-600">value</span> from day 1
+          Everyone gets <span className="text-[#8FA83F]">value</span> from day 1
         </h1>
         <p className="text-lg text-gray-600">
           A platform loved by everyone in your company - by employers and employees
@@ -176,7 +176,7 @@ const GreytHRValueSection = () => {
               <div
                 key={role}
                 className={`snap-center flex-shrink-0 w-40 mx-2 flex flex-col items-center border rounded-lg p-6 
-                  ${selectedRole === role ? 'bg-purple-100 border-purple-300 shadow-md' : 'bg-white'}
+                  ${selectedRole === role ? 'bg-[#E8F4CD] border-[#E8F4CD] shadow-md' : 'bg-white'}
                 `}
                 onClick={() => setSelectedRole(role)}
               >
@@ -252,7 +252,7 @@ const GreytHRValueSection = () => {
           {Object.keys(roleDetails).map((role) => (
             <div
               key={role}
-              className={`border rounded-lg p-6 w-40 flex flex-col items-center cursor-pointer transition-all duration-300 ${selectedRole === role ? 'bg-purple-100 border-purple-300 shadow-md' : 'bg-white hover:bg-gray-50'
+              className={`border rounded-lg p-6 w-40 flex flex-col items-center cursor-pointer transition-all duration-300 ${selectedRole === role ? 'bg-[#E8F4CD] border-[#E8F4CD] shadow-md' : 'bg-white hover:bg-gray-50'
                 }`}
               onClick={() => setSelectedRole(role)}
             >
@@ -331,9 +331,9 @@ const GreytHRValueSection = () => {
         </div>
       </div>
 
-      {/* Without/With greytHR comparison */}
+      {/* Without/With HR comparison */}
       <div className="grid md:grid-cols-2 gap-8 mt-16">
-        {/* Without GreytHR */}
+        {/* Without HR */}
         <div className="bg-white rounded-lg p-6 shadow-sm border border-gray-200">
           <h2 className="text-xl font-semibold mb-6">Without Human Maximizer</h2>
           <ul className="space-y-4">
@@ -351,7 +351,7 @@ const GreytHRValueSection = () => {
           </ul>
         </div>
 
-        {/* With GreytHR */}
+        {/* With MaximizerHR */}
         <div className="bg-blue-50 rounded-lg p-6 shadow-sm">
           <h2 className="text-xl font-semibold mb-6">With Human Maximizer</h2>
           <p className="text-gray-700">
@@ -363,4 +363,4 @@ const GreytHRValueSection = () => {
   );
 };
 
-export default GreytHRValueSection;
+export default MaximizerHRValueSection;

@@ -49,11 +49,18 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 flex flex-wrap items-center justify-between px-4 sm:px-40 py-6 shadow-md text-[#116B9E] bg-white select-none">
-      <div className="flex items-center">
-        <img src={logo} alt="greyt HR Logo" onClick={() => navigate("/")} className="h-8 sm:h-10 w-auto mr-4 sm:mr-12 cursor-pointer" />
+    <nav className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-4 sm:px-8 py-4 shadow-md text-[#116B9E] bg-white select-none">
+      {/* Logo on the left with increased size */}
+      <div className="flex-shrink-0">
+        <img 
+          src={logo} 
+          alt="greyt HR Logo" 
+          onClick={() => navigate("/")} 
+          className="h-12 sm:h-16 w-auto cursor-pointer" 
+        />
       </div>
 
+      {/* Mobile Menu Button */}
       <button
         className="md:hidden text-[#116B9E] text-lg p-2"
         onClick={() => setMenuOpen(!menuOpen)}
@@ -62,9 +69,11 @@ const Navbar = () => {
         {menuOpen ? <FaTimes /> : <FaBars />}
       </button>
 
+      {/* Navigation Items Centered */}
       <div
-        className={`${menuOpen ? "flex" : "hidden"
-          } md:flex flex-col md:flex-row w-full md:w-auto md:flex-grow items-start md:items-center space-y-4 md:space-y-0 md:space-x-6 pt-4 md:pt-0 pb-4 md:pb-0 mt-4 md:mt-0 border-t md:border-t-0 border-gray-200 md:border-transparent`}
+        className={`${
+          menuOpen ? "flex" : "hidden"
+        } md:flex flex-col md:flex-row w-full md:w-auto items-start md:items-center justify-center space-y-4 md:space-y-0 md:space-x-6 pt-4 md:pt-0 pb-4 md:pb-0 mt-4 md:mt-0 border-t md:border-t-0 border-gray-200 md:border-transparent absolute md:static top-16 left-0 md:top-auto md:left-auto bg-white md:bg-transparent`}
       >
         <div className="relative w-full md:w-auto" ref={featureRef}>
           <button
@@ -274,9 +283,10 @@ const Navbar = () => {
         </button>
       </div>
 
-      <div className="hidden md:flex items-center space-x-4 ml-auto">
-        <button className="bg-white text-base sm:text-lg px-3 sm:px-6 py-1 sm:py-2 rounded-full hover:bg-[#B2D469] transition duration-300 text-black rounded-small whitespace-nowrap">Request Demo</button>
-        <button className="bg-[#116B9E] text-base sm:text-lg text-white px-6 sm:px-6 py-1 sm:py-2 rounded-full hover:bg-[#B2D469] transition duration-300 whitespace-nowrap">Login</button>
+      {/* Request Demo and Login Buttons on the right */}
+      <div className="hidden md:flex items-center space-x-4">
+        <button className="bg-white text-base sm:text-lg px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 text-black border border-[#116B9E] whitespace-nowrap">Request Demo</button>
+        <button className="bg-[#116B9E] text-base sm:text-lg text-white px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 whitespace-nowrap">Login</button>
       </div>
     </nav>
   );

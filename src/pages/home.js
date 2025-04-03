@@ -6,7 +6,10 @@ import HomeCards from "../components/Home/HomeCards";
 import MobileHome from "../components/Home/MobileHome";
 
 import Footer from "../components/Footer";
-import VideoComponent from "../components/Home/VideoComponent";
+import VideoSection from "../components/Home/Video";
+import BusinessContactSection from "../components/FreeConsultant";
+
+
 
 
 
@@ -15,12 +18,12 @@ function Home() {
       <div>
         <Navbar />
         <HeroSection />
-        <VideoComponent />
-       
+        <VideoSection />
         <HrValue />
         <HRMSCardsSection />
-        <HomeCards />
         <MobileHome />
+        <HomeCards />
+        <BusinessContactSection />
        
         <Footer />
        

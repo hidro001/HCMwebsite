@@ -5,6 +5,7 @@ import HumanMaximizerFAQ from "../components/Faqs/FaqsMainContent";
 
 import Footer from "../components/Footer";
 import HubSpotPromoSection from "../components/Faqs/FaqsFreeTrial";
+import BusinessContactSection from "../components/FreeConsultant";
 
 
 
@@ -15,6 +16,7 @@ function Faqs() {
         <FaqsHeroSection />
         <HumanMaximizerFAQ />
         <HubSpotPromoSection />
+        < BusinessContactSection />
         <Footer />
        
       </div>

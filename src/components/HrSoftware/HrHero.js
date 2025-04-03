@@ -1,7 +1,7 @@
 import React from "react";
 
 // Correct way to import images in React
-import HeroRight from "../../assets/images/HeroImage.webp";
+import HeroRight from "../../assets/images/HeroLeft.webp";
 import YellowCircular from "../../assets/images/CircularShape.webp";
 import "../../styles/animations.css";
 

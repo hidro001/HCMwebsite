@@ -1,20 +1,24 @@
 import React from 'react';
 import Team from "../../assets/images/TeamImage.webp";
 import { motion } from "framer-motion";
+import { Lightbulb, Award, Rocket } from "lucide-react";
 
 const HowWeDoItSection = () => {
   const approaches = [
     {
       title: 'Dream',
-      description: 'We see the dreams through our customers eyes and work with intelligence, tech, and passion to make them come true.'
+      description: 'We see the dreams through our customers eyes and work with intelligence, tech, and passion to make them come true.',
+      icon: Lightbulb
     },
     {
       title: 'Be Fearless',
-      description: 'We act on our intuition, make bold moves, and eat fear for breakfast.'
+      description: 'We act on our intuition, make bold moves, and eat fear for breakfast.',
+      icon: Award
     },
     {
       title: 'Become Intrapreneurs',
-      description: 'We take ownership of our projects, regularly rewrite processes, challenge conceptions, and are idea labs on the move.'
+      description: 'We take ownership of our projects, regularly rewrite processes, challenge conceptions, and are idea labs on the move.',
+      icon: Rocket
     }
   ];
 
@@ -23,15 +27,15 @@ const HowWeDoItSection = () => {
       {/* Left Section - Image */}
       <div className="w-full md:w-1/2 flex justify-center relative">
         <div className="relative w-[80%] max-w-[500px] flex items-center justify-center">
-          {/* Purple Glow Circles */}
-          <div className="absolute -top-12 -left-12 w-36 h-36 bg-purple-400 opacity-40 rounded-full blur-2xl"></div>
-          <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-purple-400 opacity-40 rounded-full blur-2xl"></div>
+          {/* Purple Glow Circles - Same color as dots next to titles */}
+          <div className="absolute -top-12 -left-12 w-36 h-36 bg-purple-500 opacity-40 rounded-full blur-2xl"></div>
+          <div className="absolute -bottom-12 -right-12 w-36 h-36 bg-purple-500 opacity-40 rounded-full blur-2xl"></div>
 
           {/* Team Image */}
           <img
             src={Team}
             alt="Our Team"
-            className="relative w-full h-auto rounded-xl shadow-xl"
+            className="relative w-full h-auto rounded-xl"
           />
         </div>
       </div>
@@ -58,13 +62,26 @@ const HowWeDoItSection = () => {
             viewport={{ once: true }}
             className="mb-6 text-left w-full max-w-lg bg-white p-5 rounded-xl shadow-md hover:shadow-lg transition-shadow"
           >
-            <h3 className="text-2xl font-semibold mb-2 flex items-center text-gray-800">
-              {approach.title}
-              <span className="ml-2 w-3 h-3 bg-purple-500 rounded-full inline-block"></span>
-            </h3>
-            <p className="text-gray-600 text-lg leading-relaxed">{approach.description}</p>
+            <div className="flex items-start">
+              <div className="mr-4 mt-1">
+                {/* Icon with gradient background using the same purple/yellow colors */}
+                <div className="w-10 h-10 rounded-full flex items-center justify-center bg-gradient-to-br from-purple-500 to-yellow-400">
+                  <approach.icon className="w-5 h-5 text-white" />
+                </div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-semibold mb-2 flex items-center text-gray-800">
+                  {approach.title}
+                  <span className="ml-2 w-3 h-3 bg-purple-500 rounded-full inline-block"></span>
+                </h3>
+                <p className="text-gray-600 text-lg leading-relaxed">{approach.description}</p>
+              </div>
+            </div>
           </motion.div>
         ))}
+
+        {/* Yellow accent element to match the title underline */}
+        <div className="w-24 h-1 bg-yellow-400 mt-8 rounded-full"></div>
       </motion.div>
     </section>
   );
