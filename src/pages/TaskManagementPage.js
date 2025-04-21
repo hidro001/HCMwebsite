@@ -3,10 +3,10 @@ import PayrollHeroSection from "../components/PayrollSoftware/PayrollHero"
 import FeaturesSection from "../components/HrSoftware/HrFeaturesSection";
 import HROperationsPage from "../components/HrScroll";
 import FAQSection from "../components/HrSoftware/HrFaqs";
-import BussinessContactSection from "../components/FreeConsultant";
+import BusinessContactSection from "../components/FreeConsultant";
 import Footer from "../components/Footer";
 
-function EmployeeEngagementPage() {
+function TaskManagement() {
   return (
     <div>
       <Navbar />
@@ -14,10 +14,10 @@ function EmployeeEngagementPage() {
       <FeaturesSection />
       <HROperationsPage />
       <FAQSection />
-      <BussinessContactSection />
+      <BusinessContactSection />
       <Footer />
     </div>
   );
 }
 
-export default EmployeeEngagementPage;
+export default TaskManagement;

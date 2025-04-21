@@ -1,5 +1,5 @@
 import React from 'react';
-import {Logo} from "../assets/images/logo.png";
+import {Logo} from "../../src/assets/images/logo.png";
 
 const GreytHRFooter = () => {
   return (
@@ -104,11 +104,7 @@ const GreytHRFooter = () => {
             {/* Logo */}
             <div className="mb-4 md:mb-0">
               <a href="#">
-                <img 
-                  src="{Logo}" 
-                  alt="Human Maximizer Logo" 
-                  className="h-12"
-                />
+              <img src="{Logo}" alt="Human Maximizer Logo" className="h-12" />
               </a>
             </div>
 

@@ -4,18 +4,10 @@ import Employee from "../../assets/images/EmployeeManagementPage.webp";
 const FeaturesSection = () => {
   return (
     <div>
-      {/* Illustration Area */}
-      <div className="max-w-4xl mx-auto mt-12 bg-white p-8 rounded-xl shadow-lg">
-        <img
-          id="sliderTrigger"
-          src={Employee}
-          alt="Human Maximizer Dashboard Engage Dashboard"
-          className="w-full rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105 hover:ring-4 hover:ring-[#3D9DD1]"
-        />
-      </div>
+      
 
       {/* Features Section */}
-      <section className="py-24 bg-gray-50">
+      <section className="py-24">
   <div className="container mx-auto px-8">
     <h2 className="text-4xl font-bold text-center text-gray-800 mb-12">HR Management Features</h2>
     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

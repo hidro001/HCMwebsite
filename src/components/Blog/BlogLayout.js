@@ -1,11 +1,19 @@
 import React from 'react';
+import Banner1 from "../../assets/images/Banner1.webp";
+import Banner2 from "../../assets/images/Banner2.webp";
+import Banner3 from "../../assets/images/Banner3.webp";
+import Banner4 from "../../assets/images/Banner4.webp";
+import Banner5 from "../../assets/images/Banner5.webp";
+import Banner6 from "../../assets/images/Banner6.webp";
+
+
 
 const BlogLayout = () => {
   // Featured post data
   const featuredPost = {
     category: "Lifestyle",
     subCategory: "Trend",
-    image: "/api/placeholder/500/500", // Main cartoon character image
+    image: "../assets/images/Banner5.webp", // Replace with your actual image path
     title: "Of acceptance insipidity remarkably is invitation",
     author: "William Lewis",
     timePosted: "2 weeks ago",
@@ -19,28 +27,28 @@ const BlogLayout = () => {
   const relatedPosts = [
     {
       id: 1,
-      image: "/images/Blog",
+      image: "../assets/images/Banner1.webp", // Fixed image path
       title: "Together happy feelings continue juvenile one had",
       views: 0,
       backgroundColor: "bg-blue-100"
     },
     {
       id: 2,
-      image: "/api/placeholder/80/80",
+      image: "../assets/images/Banner2.webp", // Fixed image path
       title: "Uneasy no settle when nature narrow in afraid",
       views: 3,
       backgroundColor: "bg-pink-100"
     },
     {
       id: 3,
-      image: "/api/placeholder/80/80",
+      image: "../assets/images/Banner3.webp", // Fixed image path
       title: "Style begin mr heard by in music tried do",
       views: 6,
       backgroundColor: "bg-yellow-100"
     },
     {
       id: 4,
-      image: "/api/placeholder/80/80",
+      image: "../assets/images/Banner4.webp", // Fixed image path
       title: "Insipidity sufficient dispatched any reasonably led ask",
       views: 9,
       backgroundColor: "bg-red-900"
@@ -91,7 +99,7 @@ const BlogLayout = () => {
               <div className="flex items-center mb-6">
                 <div className="w-10 h-10 rounded-full bg-gray-300 mr-3 overflow-hidden">
                   <img 
-                    src="/api/placeholder/40/40" 
+                    src="/images/author-avatar.jpg" // Author avatar image
                     alt={featuredPost.author}
                     className="w-full h-full object-cover"
                   />

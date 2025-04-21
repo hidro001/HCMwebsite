@@ -11,7 +11,7 @@ const ContactBanner = () => {
   }, []);
 
   return (
-    <div className="mx-40 bg-amber-300 p-20 mt-36 rounded-lg flex items-center justify-between">
+    <div className="relative  mx-40 bg-[#C6E08E] p-20 mt-36 rounded-lg flex items-center justify-between">
       <div className="flex flex-col md:flex-row items-center justify-between">
         {/* Left Content Section */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0">

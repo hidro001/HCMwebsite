@@ -23,7 +23,7 @@ const HowWeDoItSection = () => {
   ];
 
   return (
-    <section className="w-full flex flex-col md:flex-row items-center py-20 bg-gradient-to-br from-white to-gray-100 shadow-lg rounded-2xl overflow-hidden px-12 select-none">
+    <section className="w-full flex flex-col md:flex-row items-center py-20 bg-white shadow-lg rounded-2xl overflow-hidden px-12 select-none">
       {/* Left Section - Image */}
       <div className="w-full md:w-1/2 flex justify-center relative">
         <div className="relative w-[80%] max-w-[500px] flex items-center justify-center">

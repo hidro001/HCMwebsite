@@ -11,13 +11,19 @@ import PayrollSoftwarePage from './pages/PayrollSoftwarePage';
 import LeaveManagementPage from './pages/LeaveManagementPage';
 import AttendanceManagementPage from './pages/AttendanceManagementPage';
 import PerformanceManagementPage from './pages/PerformanceManagementPage';
-import EmployeeSelfServicePage from './pages/EmployeeSelfServicePage';
+import AnnouncementPage from "./pages/AnnouncementPage";
 import EmployeeEngagementPage from './pages/EmployeeEngagementPage';
 import RecruitmentSoftwarePage from './pages/RecruitmentSoftwarePage';
 import SaaSPage from './pages/SaaSPage';
-import UniteMarketPlacePage from "./pages/UniteMarketPlacePage";
-import ManufacturingPage from "./pages/ManufacturingPage";
+import TaskManagementPage from "./pages/TaskManagementPage";
+import PayrollServiceProvidersPage from "./pages/PayrollServicePage"
+import PayrollManagement from "./pages/PayrollManagement";
 import BlogPage from "./pages/BlogPage";
+import RequestaDemo from "./pages/Demo";
+import Login from "./pages/Login";
+import EmployeeDataPage from "./pages/EmployeeData";
+import TicketManagementPage from "./pages/TicketManagementPage";
+import AssetsManagementPage from "./pages/AssetsManagementPage";
 
 
 
@@ -43,13 +49,23 @@ function App() {
           <Route path="/LeaveManagement" element={<LeaveManagementPage />} />
           <Route path="/AttendanceManagement" element={<AttendanceManagementPage />} />
           <Route path="/PerformanceManagement" element={<PerformanceManagementPage />} />
-          <Route path="/EmployeeSelfService" element={<EmployeeSelfServicePage />} />
+          <Route path="/EmployeeData" element={<EmployeeDataPage />} />
           <Route path="/EmployeeEngagement" element={<EmployeeEngagementPage />} />
           <Route path="/RecruitmentSoftware" element={<RecruitmentSoftwarePage />} />
-          <Route path="/SaaSPage" element={<SaaSPage />} />
-          <Route path="/UniteMarketPlace" element={<UniteMarketPlacePage />} />
-          <Route path="/ManufacturingPage" element={<ManufacturingPage />} />
+          <Route path="/SaaS" element={<SaaSPage />} />
+          <Route path="/TaskManagement" element={<TaskManagementPage />} />
+          <Route path="/Announcement" element={<AnnouncementPage />} />
+          <Route path="/PayrollServiceProviders" element={<PayrollServiceProvidersPage />} />
+          <Route path="/PayrollManagement" element={<PayrollManagement />} />
           <Route path="/Blog" element={<BlogPage />} />
+          <Route path="/TicketManagement" element={<TicketManagementPage />} />
+          <Route path="/AssetsManagement" element={<AssetsManagementPage />} />
+
+
+          {/* Demo Page */}
+          <Route path="/RequestDemo" element={<RequestaDemo />} />
+          {/* Login Page*/}
+          <Route path="/Login" element={<Login />} />
          
         </Routes>
       </div>

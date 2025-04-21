@@ -2,7 +2,7 @@ import React from 'react';
 
 const LatestNewsSection = () => {
   return (
-    <section className="relative w-full px-16 py-48 mt-16 bg-amber-50 overflow-hidden rounded-lg">
+    <section className="relative w-full px-16 py-48 mt-16 bg-amber-50 overflow-hidden rounded-lg select-none">
       {/* Green wave element (top left) - floating */}
       <div className="absolute top-16 left-16 animate-float">
         <svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -399,6 +399,30 @@ const HRManagementTools = () => {
   ];
 
   const ToolCard = ({ title, color, icon, link, index }) => {
+    // Helper function to get the background color class
+    const getBgColorClass = (color) => {
+      const colorMap = {
+        blue: "bg-blue-50",
+        green: "bg-green-50",
+        yellow: "bg-yellow-50",
+        pink: "bg-pink-50",
+        purple: "bg-purple-50"
+      };
+      return colorMap[color] || "bg-gray-50"; // Default fallback
+    };
+
+    // Helper function for ping animation background
+    const getPingBgColorClass = (color) => {
+      const colorMap = {
+        blue: "bg-blue-50",
+        green: "bg-green-50",
+        yellow: "bg-yellow-50",
+        pink: "bg-pink-50",
+        purple: "bg-purple-50"
+      };
+      return colorMap[color] || "bg-gray-50"; // Default fallback
+    };
+
     const renderTitle = () => {
       const titleParts = title.split(" ");
       return titleParts.length > 1 ? (
@@ -419,13 +443,13 @@ const HRManagementTools = () => {
 
     return (
       <div
-        className={`bg-${color}-50 rounded-lg p-8 flex flex-col items-center text-center transition-all duration-300 ${
+        className={`${getBgColorClass(color)} rounded-lg p-8 flex flex-col items-center text-center transition-all duration-300 ${
           activeCardIndex === index ? `transform scale-105 shadow-lg` : ''
         }`}
       >
         <div className="mb-4 relative">
           <div
-            className={`bg-${color}-50 w-16 h-16 rounded-full absolute -top-4 -right-4 z-0 ${
+            className={`${getPingBgColorClass(color)} w-16 h-16 rounded-full absolute -top-4 -right-4 z-0 ${
               activeCardIndex === index ? 'animate-ping-slow' : ''
             }`}
           ></div>

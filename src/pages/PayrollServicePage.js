@@ -1,22 +1,23 @@
-
 import Navbar from "../components/Navbar";
-
-
-
+import PayrollHeroSection from "../components/PayrollSoftware/PayrollHero"
+import FeaturesSection from "../components/HrSoftware/HrFeaturesSection";
+import HROperationsPage from "../components/HrScroll";
+import FAQSection from "../components/HrSoftware/HrFaqs";
+import BusinessContactSection from "../components/FreeConsultant";
 import Footer from "../components/Footer";
 
 function PayrollService() {
-    return (
-      <div>
-        <Navbar />
-       
-     
-        
-        <Footer />
-       
-      </div>
-    );
-  }
-  
-  export default PayrollService;
-  
+  return (
+    <div>
+      <Navbar />
+      <PayrollHeroSection />
+      <FeaturesSection />
+      <HROperationsPage />
+      <FAQSection />
+      <BusinessContactSection />
+      <Footer />
+    </div>
+  );
+}
+
+export default PayrollService;

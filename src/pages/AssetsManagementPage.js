@@ -6,7 +6,7 @@ import FAQSection from "../components/HrSoftware/HrFaqs";
 import BussinessContactSection from "../components/FreeConsultant";
 import Footer from "../components/Footer";
 
-function EmployeeEngagementPage() {
+function AssetsManagementPage() {
   return (
     <div>
       <Navbar />
@@ -20,4 +20,4 @@ function EmployeeEngagementPage() {
   );
 }
 
-export default EmployeeEngagementPage;
+export default AssetsManagementPage;

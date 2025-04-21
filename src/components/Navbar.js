@@ -113,17 +113,17 @@ const Navbar = () => {
                       <span className="text-[#116B9E] mr-2">📊</span>
                       <span>Performance Management</span>
                     </li>
-                    <li onClick={() => navigate("/EmployeeSelfService")} className="flex items-center hover:bg-gray-100 p-2 rounded">
+                    <li onClick={() => navigate("/EmployeeData")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#B2D469] mr-2">👥</span>
-                      <span>Employee Self Service</span>
+                      <span>Employee Data</span>
                     </li>
                     <li onClick={() => navigate("/EmployeeEngagement")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#116B9E] mr-2">📣</span>
-                      <span>Employee Engagement</span>
+                      <span>Employee Enagagement</span>
                     </li>
-                    <li onClick={() => navigate("/UniteMarketplace")} className="flex items-center hover:bg-gray-100 p-2 rounded">
+                    <li onClick={() => navigate("/TaskManagement")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#B2D469] mr-2">🔄</span>
-                      <span>Unite Marketplace</span>
+                      <span>Task Management</span>
                     </li>
                     <li onClick={() => navigate("/RecruitmentSoftware")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#116B9E] mr-2">🔍</span>
@@ -135,17 +135,17 @@ const Navbar = () => {
                 <div className="col-span-1">
                   <h3 className="font-semibold text-base mb-4">For Industry</h3>
                   <ul className="space-y-3">
-                    <li onClick={() => navigate("/Manufacturing")} className="flex items-center hover:bg-gray-100 p-2 rounded">
-                      <span className="text-[#B2D469] mr-2">🏭</span>
-                      <span>Manufacturing</span>
+                  <li onClick={() => navigate("/Announcement")} className="flex items-center hover:bg-gray-100 p-2 rounded">
+                      <span className="text-[#116B9E] mr-2">🔍</span>
+                      <span>Announcement</span>
                     </li>
-                    <li onClick={() => navigate("/SaaS/IT")} className="flex items-center hover:bg-gray-100 p-2 rounded">
+                    <li onClick={() => navigate("/SaaS")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#116B9E] mr-2">💻</span>
-                      <span>SaaS/IT</span>
+                      <span>Reports & Analytics</span>
                     </li>
                     <li onClick={() => navigate("/PayrollServiceProviders")} className="flex items-center hover:bg-gray-100 p-2 rounded">
                       <span className="text-[#B2D469] mr-2">💼</span>
-                      <span>Payroll Service Providers</span>
+                      <span>Productivity Lens</span>
                     </li>
                   </ul>
                 </div>
@@ -197,29 +197,29 @@ const Navbar = () => {
                     <li className="hover:bg-gray-100 p-2 rounded">Reports & Insights</li>
                   </ul>
 
-                  <div className="flex items-center mt-6 mb-3 text-[#B2D469] font-medium">
+                  <div onClick={() => navigate("/PerformanceManagement")} className="flex items-center mt-6 mb-3 text-[#B2D469] font-medium">
                     <span className="text-[#B2D469] mr-2">📊</span>
                     <span>Performance Management</span>
                   </div>
 
-                  <div className="flex items-center mt-5 mb-3 text-[#116B9E] font-medium">
+                  <div onClick={() => navigate("/PayrollManagement")} className="flex items-center mt-5 mb-3 text-[#116B9E] font-medium">
                     <span className="text-[#116B9E] mr-2">💰</span>
                     <span>Payroll Management</span>
                   </div>
 
-                  <div className="flex items-center mt-5 mb-3 text-[#B2D469] font-medium">
+                  <div onClick={() => navigate("/LeaveManagement")} className="flex items-center mt-5 mb-3 text-[#B2D469] font-medium">
                     <span className="text-[#B2D469] mr-2">🌴</span>
-                    <span>Leave Management</span>
+                    <span>Resignation F&F</span>
                   </div>
 
-                  <div className="flex items-center mt-5 mb-3 text-[#116B9E] font-medium">
+                  <div onClick={() => navigate("/AssetsManagement")} className="flex items-center mt-5 mb-3 text-[#116B9E] font-medium">
                     <span className="text-[#116B9E] mr-2">⏰</span>
-                    <span>Attendance Management</span>
+                    <span>Assets Management</span>
                   </div>
 
-                  <div className="flex items-center mt-5 mb-3 text-[#B2D469] font-medium">
+                  <div onClick={() => navigate("/TicketManagement")} className="flex items-center mt-5 mb-3 text-[#B2D469] font-medium">
                     <span className="text-[#B2D469] mr-2">🔒</span>
-                    <span>Statutory Compliances</span>
+                    <span>Ticket Management</span>
                   </div>
                 </div>
 
@@ -256,7 +256,7 @@ const Navbar = () => {
 
                   <div className="flex items-center mt-5 mb-3 text-[#116B9E] font-medium">
                     <span className="text-[#116B9E] mr-2">❓</span>
-                    <span>greytHR Help</span>
+                    <span>HumanMaximizer Help</span>
                   </div>
                 </div>
 
@@ -285,8 +285,8 @@ const Navbar = () => {
 
       {/* Request Demo and Login Buttons on the right */}
       <div className="hidden md:flex items-center space-x-4">
-        <button className="bg-white text-base sm:text-lg px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 text-black border border-[#116B9E] whitespace-nowrap">Request Demo</button>
-        <button className="bg-[#116B9E] text-base sm:text-lg text-white px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 whitespace-nowrap">Login</button>
+        <button onClick={() => navigate("/RequestDemo")} className="bg-white text-base sm:text-lg px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 text-black border border-[#116B9E] whitespace-nowrap">Request Demo</button>
+        <button onClick={() => navigate("/Login")} className="bg-[#116B9E] text-base sm:text-lg text-white px-4 py-2 rounded-full hover:bg-[#B2D469] transition duration-300 whitespace-nowrap">Login</button>
       </div>
     </nav>
   );

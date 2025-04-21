@@ -60,7 +60,7 @@ const HumanMaximizerFAQ = () => {
   ];
 
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24 select-none">
       <div className="container max-w-4xl mx-auto px-4 md:px-8 lg:px-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h2>
